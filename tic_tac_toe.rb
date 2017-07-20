@@ -21,8 +21,11 @@ class Game
 		loops=0
 		@filled = []
 		@hash_board={}
-		while 1
-			end_conditions
+		#Intentional endless loop, only an input of '0' or the game ending will terminate the loop
+		while true
+			end_conditions #Checks if theres a winner, if not then game continues
+
+			#This block of code ensures that the users input is valid
 			print "Enter Command Number: "
 			num = gets.chomp
 			check = invalid_entries(num)
@@ -70,14 +73,12 @@ class Game
 		end
 	end
 	
-
 	def end_conditions 
 		win_combos=[[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
 		8.times do |var|
 			combos_check(win_combos[var],"X")
 			combos_check(win_combos[var],"O")
 		end
-		#combos_check(win_combos[0],"X")
 
 		if @filled.length==@board.array.length
 			puts "It's a Tie!"
@@ -105,15 +106,9 @@ class Game
 			puts ""
 		end
 
-		def space_occupied num
-			return false if @array[num-1]==num.to_s
-			true
-		end
-
 		def altar_board(value, index)
 			@array[index]=value
 		end
-
 	end
 end
 

@@ -1,0 +1,1 @@
+This project is completed as a submission for the Object Oriented Programming: Tic-Tac-Toe project in the Ruby Programming curriculum at theodinproject.com
